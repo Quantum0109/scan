@@ -73,6 +73,7 @@ passengers = [
 accepted = []
 print(f"{len(passengers)} пассажиров в очереде на проверку")
 for passenger in passengers:
+    passenger["проверен"] = True
     for item in passenger["ручная кладь"]:
         if item in danger_item:
             print ("спалися", item, passenger["имя"])
@@ -80,5 +81,5 @@ for passenger in passengers:
     else:
         print("допущен")
         accepted.append(passenger)
-print(accepted)
 
+print(accepted)
