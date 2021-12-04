@@ -81,5 +81,5 @@ for passenger in passengers:
     else:
         print("допущен")
         accepted.append(passenger)
-
+print(f"{len(accepted)} допущено")
 print(accepted)
