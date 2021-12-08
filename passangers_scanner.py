@@ -70,16 +70,17 @@ passengers = [
         "ручная кладь": []
     }
 ]
-accepted = []
-print(f"{len(passengers)} пассажиров в очереде на проверку")
-for passenger in passengers:
-    passenger["проверен"] = True
-    for item in passenger["ручная кладь"]:
-        if item in danger_item:
-            print ("спалися", item, passenger["имя"])
-            break
-    else:
-        print("допущен")
-        accepted.append(passenger)
-print(f"{len(accepted)} допущено")
-print(accepted)
+
+def filter_passangers(passengers, danger_item: list) -> list:
+	accepted = []
+	for passenger in passengers:
+	    passenger["проверен"] = True
+	    for item in passenger["ручная кладь"]:
+	        if item in danger_item:
+	            break
+	    else:
+	        accepted.append(passenger)
+	return accepted
+
+
+print(filter_passangers(passengers, danger_item))
